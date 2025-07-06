@@ -6,12 +6,18 @@
   <meta http-equiv="Expires" content="0" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SmartDecode Web</title>
+  <title id="page-title">SmartDecode Web</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" title="" type="" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="icons/icon-192.png">
   <meta name="theme-color" content="#1f2937" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("Roj5EFhl3hb9NaQum");
+    })();
+  </script>
 </head>
 <body class="bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen flex flex-col justify-center items-center px-4 py-10 font-sans">
 
@@ -24,26 +30,26 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        History
+        <span id="desktop-sidebar-history-text">History</span>
       </button>
-      <a href="https://saweria.co/Vyrina" target="_blank" class="block w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 rounded flex items-center gap-2">
+      <button id="desktop-sidebar-donate" class="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 rounded flex items-center gap-2 show-donate-modal">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        Donate
-      </a>
-      <button class="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 rounded flex items-center gap-2">
+        <span id="desktop-sidebar-donate-text">Support</span>
+      </button>
+      <button id="desktop-sidebar-settings" class="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 rounded flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
-        Settings
+        <span id="desktop-sidebar-settings-text">Settings</span>
       </button>
-      <button class="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 rounded flex items-center gap-2">
+      <button id="desktop-sidebar-help" class="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 rounded flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        Help
+        <span id="desktop-sidebar-help-text">Help</span>
       </button>
     </div>
   </div>
@@ -77,14 +83,14 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span>History</span>
+            <span id="desktop-history-btn-text">History</span>
           </button>
-          <a href="https://saweria.co/Vyrina" target="_blank" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 rounded-md text-sm flex items-center gap-1.5">
+          <button id="desktop-donate-btn" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 rounded-md text-sm flex items-center gap-1.5 show-donate-modal">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span>Donate</span>
-          </a>
+            <span id="desktop-donate-btn-text">Support</span>
+          </button>
         </div>
         
         <div class="relative inline-block text-left" id="lang-dropdown">
@@ -110,21 +116,34 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          History
+          <span id="mobile-menu-history-text">History</span>
         </button>
-        <a href="https://saweria.co/Vyrina" target="_blank" class="block w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 flex items-center gap-2">
+        <button id="mobile-donate-btn" class="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 flex items-center gap-2 show-donate-modal">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          Donate
-        </a>
+          <span id="mobile-menu-donate-text">Support</span>
+        </button>
+        <button id="mobile-settings-btn" class="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span id="mobile-menu-settings-text">Settings</span>
+        </button>
+        <button id="mobile-help-btn" class="w-full text-left px-4 py-3 text-sm text-gray-300 hover:bg-gray-700 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span id="mobile-menu-help-text">Help</span>
+        </button>
       </div>
     </div>
 
-    <p id="desc-text" class="text-gray-300 text-center text-sm">Decode otomatis link base64</p>
+    <p id="desc-text" class="text-gray-300 text-center text-sm">Dekode link yang terkode secara otomatis</p>
 
     <div class="relative">
-      <input type="text" id="input-link" placeholder="Tempelkan link shortlink atau encoded..." class="w-full px-4 py-3 pr-10 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <input type="text" id="input-link" placeholder="Tempelkan link shortlink atau terenkripsi..." class="w-full px-4 py-3 pr-10 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" />
       <button id="clear-button" class="absolute right-3 top-1/2 transform -translate-y-1/2 hidden text-gray-400 hover:text-white" title="Clear input" aria-label="Clear input">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -138,6 +157,12 @@
       </svg>
       <span id="decode-btn-text">Dekode Sekarang</span>
     </button>
+    
+    <div id="disclaimer" class="text-xs text-center text-gray-500 mt-2 px-4">
+      <p id="disclaimer-text">Gunakan alat ini dengan bijak. SmartDecode dibuat hanya untuk keperluan pribadi dan edukasi. 
+      Kami tidak bertanggung jawab atas penyalahgunaan. 
+      Jika memungkinkan, <strong>gunakanlah situs resmi atau legal</strong> untuk menghargai kerja keras pembuat konten.</p>
+    </div>
 
     <div id="output" class="space-y-4"></div>
     
@@ -147,15 +172,274 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          History
+          <span id="history-panel-title">History</span>
+          <span id="history-count" class="text-xs bg-blue-500 px-2 py-0.5 rounded-full">0</span>
         </h3>
-        <button id="close-history" class="text-gray-400 hover:text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        <div class="flex items-center gap-2">
+          <button id="history-settings-btn" class="p-1 text-gray-400 hover:text-white" title="Settings">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </button>
+          <button id="close-history" class="p-1 text-gray-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-600 pt-2"></div>
+      
+      <div id="history-list" class="max-h-60 overflow-y-auto space-y-2">
+      </div>
+      
+      <div id="history-panel-footer" class="pt-2 flex justify-between items-center">
+        <div id="history-items-count" class="text-xs text-gray-400">0 item</div>
+        <button id="clear-all-history-small" class="text-xs flex items-center gap-1 px-2 py-1 bg-red-800/50 hover:bg-red-800 rounded">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
           </svg>
+          <span id="clear-all-history-small-text">Clear All</span>
         </button>
       </div>
-      <div id="history-list" class="max-h-60 overflow-y-auto space-y-2">
+    </div>
+  </div>
+
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <div class="bg-gray-800 rounded-xl shadow-lg w-full p-6 space-y-6" style="max-width: 500px; width: 90vw;">
+        <div class="flex justify-between items-center">
+          <h3 id="settings-modal-title" class="text-xl font-semibold text-blue-400">Pengaturan Aplikasi</h3>
+          <button id="close-settings-modal" class="text-gray-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        
+        <div class="space-y-6">
+          <div>
+            <h4 id="settings-general-title" class="font-medium text-white mb-3">Pengaturan Umum</h4>
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <span id="auto-copy-label" class="text-base">Salin Otomatis</span>
+                <label class="switch">
+                  <input type="checkbox" id="auto-copy">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              
+              <div class="flex justify-between items-center">
+                <span id="auto-clear-label" class="text-base">Bersihkan Otomatis</span>
+                <label class="switch">
+                  <input type="checkbox" id="auto-clear">
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h4 id="settings-history-title" class="font-medium text-white mb-3">Pengaturan Riwayat</h4>
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <span id="history-limit-label" class="text-base">Batas Riwayat</span>
+                <div class="w-24">
+                  <input type="number" id="history-limit" min="1" max="50" class="w-full px-3 py-2 rounded bg-gray-700 text-white text-base">
+                </div>
+              </div>
+              
+              <div class="flex justify-between items-center">
+                <span id="clear-history-label" class="text-base">Hapus Riwayat</span>
+                <div class="flex gap-2">
+                  <button id="clear-all-history-btn" class="px-4 py-2 bg-red-800 hover:bg-red-900 rounded text-base flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                    <span id="clear-all-history-text">Hapus Semua</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pt-4 border-t border-gray-700">
+          <button id="save-settings" class="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition text-base font-medium">
+            <span id="save-settings-text">Simpan Pengaturan</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="confirm-modal" class="modal">
+    <div class="modal-content">
+      <div class="bg-gray-800 rounded-xl shadow-lg w-full p-6 space-y-4" style="max-width: 500px; width: 90vw;">
+        <div class="flex justify-between items-center">
+          <h3 id="confirm-modal-title" class="text-xl font-semibold text-red-400">Konfirmasi</h3>
+          <button id="close-confirm-modal" class="text-gray-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        
+        <div class="text-gray-300 text-base">
+          <p id="confirm-modal-message">Apakah Anda yakin ingin menghapus semua riwayat?</p>
+        </div>
+        
+        <div class="flex justify-end space-x-3 pt-4">
+          <button id="confirm-modal-cancel" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-md transition text-base">
+            <span id="confirm-modal-cancel-text">Batal</span>
+          </button>
+          <button id="confirm-modal-confirm" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition flex items-center gap-1 text-base">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+            <span id="confirm-modal-confirm-text">Hapus</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="help-modal" class="modal">
+    <div class="modal-content">
+      <div class="bg-gray-800 rounded-xl shadow-lg w-full p-6 space-y-4" style="max-width: 500px; width: 90vw;">
+        <div class="flex justify-between items-center">
+          <h3 id="help-modal-title" class="text-xl font-semibold text-blue-400">Help & Guide</h3>
+          <button id="close-help-modal" class="text-gray-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="max-h-[60vh] overflow-y-auto text-gray-300">
+          <div id="help-text-content">
+            <p class="mb-3">
+              I made SmartDecode because I was tired of trying to download comics or novels and ending up on sites full of ads, popups, or shady redirects. This tool helps you instantly uncover the real link hidden behind encoding like base64, URL, hex, or shortlinks.
+            </p>
+
+            <p class="mb-3">Supported formats:</p>
+            <ul class="list-disc pl-5 mb-3">
+              <li>Base64 (e.g. <code>aHR0cHM6Ly9leGFtcGxlLmNvbQ==</code>)</li>
+              <li>URL-encoded (e.g. <code>https%3A%2F%2Fexample.com</code>)</li>
+              <li>Hexadecimal (e.g. <code>68747470733a2f2f...</code>)</li>
+              <li>Some shortlink services like adtival, etc.</li>
+            </ul>
+
+            <p class="mb-3">
+              Decoded history is saved locally in your browser. You can view it from the <strong>History</strong> button. All your data stays private.
+            </p>
+
+            <p class="mb-3">
+              Note: This tool <strong>does not bypass ads or captchas</strong>. It only extracts the clean, hidden link.
+            </p>
+          </div>
+
+          <div class="mt-4">
+            <h4 id="video-tutorial-title" class="font-medium text-white mb-2">Watch Tutorial Video</h4>
+            <div class="aspect-w-16 aspect-h-9">
+              <iframe class="w-full h-40 rounded-lg" src="https://www.youtube.com/embed/pYJZLmRHqrk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="mt-6 border-t border-gray-700 pt-4">
+            <h4 class="font-medium text-white mb-2">💬 Feedback & Support</h4>
+            <p id="feedback-description" class="text-gray-400 text-sm mb-3">
+              Got ideas or found a bug? Let us know and help make SmartDecode better!
+            </p>
+            <button id="feedback-button" class="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-medium py-2 rounded-lg transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+              </svg>
+              <span id="feedback-button-text">Send Feedback</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button id="confirm-help-modal" class="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition text-base">
+            <span id="confirm-help-modal-text">Got it!</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="feedback-modal" class="modal">
+    <div class="modal-content">
+      <div class="bg-gray-800 rounded-xl shadow-lg w-full p-6 space-y-4" style="max-width: 500px; width: 90vw;">
+        <div class="flex justify-between items-center">
+          <h3 id="feedback-modal-title" class="text-xl font-semibold text-blue-400">Feedback</h3>
+          <button id="close-feedback-modal" class="text-gray-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        
+        <form id="feedback-form" class="space-y-4">
+          <div>
+            <label for="feedback-name" class="block text-base font-medium text-gray-300 mb-2">Nama</label>
+            <input type="text" id="feedback-name" class="w-full px-4 py-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-base" placeholder="Nama Anda (opsional)">
+          </div>
+          <div>
+            <label for="feedback-email" class="block text-base font-medium text-gray-300 mb-2">Email</label>
+            <input type="email" id="feedback-email" class="w-full px-4 py-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-base" placeholder="Email Anda (opsional)">
+          </div>
+          <div>
+            <label for="feedback-message" class="block text-base font-medium text-gray-300 mb-2">Pesan</label>
+            <textarea id="feedback-message" rows="5" class="w-full px-4 py-3 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-base" placeholder="Pesan Anda..." required></textarea>
+          </div>
+          <div class="pt-2">
+            <button type="submit" class="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition flex items-center justify-center gap-2 text-base font-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span id="feedback-submit-text">Kirim Masukan</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="donate-modal" class="modal">
+    <div class="modal-content">
+      <div class="bg-gray-800 rounded-xl shadow-lg w-full p-6 space-y-6" style="max-width: 500px; width: 90vw;">
+        <div class="flex justify-between items-center">
+          <h3 id="donate-modal-title" class="text-xl font-semibold text-amber-400">Support Development</h3>
+          <button id="close-donate-modal" class="text-gray-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <p id="donate-modal-description" class="text-gray-400 text-center">If you find this tool helpful, consider supporting me!</p>
+        <div class="donate-options grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="donate-option bg-gradient-to-br from-gray-700/50 to-gray-800 hover:from-blue-900/50 hover:to-blue-800/80 transition-all rounded-xl p-5 flex flex-col items-center text-center">
+            <img src="https://trakteer.id/images/mix/navbar-logo.png" alt="Trakteer" class="h-14 w-auto mb-3">
+            <p id="trakteer-text" class="font-medium text-white mb-3 text-lg">Trakteer</p>
+            <a id="trakteer-link" href="https://trakteer.id/vyrina" target="_blank" class="mt-auto w-full px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg transition text-base font-medium shadow-md">
+              Support via Trakteer
+            </a>
+          </div>
+          <div class="donate-option bg-gradient-to-br from-gray-700/50 to-gray-800 hover:from-pink-900/50 hover:to-pink-800/80 transition-all rounded-xl p-5 flex flex-col items-center text-center">
+            <img src="https://storage.ko-fi.com/cdn/brandasset/v2/kofi_logo.png?_gl=1*t3ctgu*_gcl_au*MTY4NTUwMjI3Ny4xNzUxNzE2OTgy*_ga*MTk0ODgwNjk5NS4xNzUxNzE4NjAx*_ga_M13FZ7VQ2C*czE3NTE3MTg2MDIkbzEkZzEkdDE3NTE3MTg3MDMkajMwJGwwJGgw" alt="Ko-fi" class="h-14 w-auto mb-3">
+            <p id="kofi-text" class="font-medium text-white mb-3 text-lg">Ko-fi</p>
+            <a id="kofi-link" href="https://ko-fi.com/vyrina" target="_blank" class="mt-auto w-full px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition text-base font-medium shadow-md">
+              Support via Ko-fi
+            </a>
+          </div>
+        </div>
+        <div class="pt-4 text-center text-sm text-gray-400">
+          <p id="donate-support-message">Your support helps me keep improving and expanding SmartDecode!</p>
+        </div>
       </div>
     </div>
   </div>
